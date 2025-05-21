@@ -15,6 +15,11 @@ app.use(bodyParser.urlencoded({ extended: true }));
 // Routes
 app.use("/api/auth", userRoutes);
 
+// ✅ New route added here
+app.get("/api/data", (req, res) => {
+  res.json({ message: "This is sample data from the server." });
+});
+
 // Connect to MongoDB
 mongoose
   .connect(process.env.MONGO_URI, { useNewUrlParser: true, useUnifiedTopology: true })
